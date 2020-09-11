@@ -1,0 +1,7 @@
+Flask
+google-cloud-language
+google-cloud-vision
+tweepy
+urllib
+python-facebook-api
+pyrebase
