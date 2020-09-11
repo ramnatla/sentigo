@@ -1,7 +1,7 @@
 # MHacks12
 
 Pre-requisites
-1. Edit env_vars.sh and add your own API keys, configuration settings, etc
+1. Edit PythonBackend/env_vars.sh and add your own API keys, configuration settings, etc
 2. Create auth.json in PythonBackend to store your Google API Credentials
     - Format Example: 
     {
@@ -40,5 +40,6 @@ To start front-end:
 
 To run backend:
 1. cd PythonBackend
-2. source env_vars.sh
-3. flask run --host 0.0.0.0 --port 5000
+2. pip install -r requirements.txt
+3. source env_vars.sh
+4. flask run --host 0.0.0.0 --port 5000
