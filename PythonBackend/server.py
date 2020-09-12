@@ -29,7 +29,8 @@ db = firebase.database()
 
 @app.route('/<string:event>', methods = ['GET'])
 def get(event):
-	print("Entering GET Request")
+
+	# Example data
 	hardcode = {
 		"sentiment": 0.3111,
 		"imagesAnalyzed": 0,
@@ -45,10 +46,11 @@ def get(event):
 		"postsAnalyzed": 15
 	}
 	return hardcode, 200
+	
 	info = run(event)
 	return info, 200
 
-@app.route('/is_bad/<string:event>', methods = ['GET'])
+@app.route('/event_status/<string:event>', methods = ['GET'])
 def isEventBad(event):
 	info = {}
 
@@ -65,7 +67,7 @@ def isEventBad(event):
 
 	return jsonify(info), 200
 
-@app.route('/db', methods = ['POST'])
+@app.route('/enroll_user', methods = ['POST'])
 def registerUser():
 	email = flask.request.get_json()["email"]
 	university = flask.request.get_json()["university"]
@@ -73,7 +75,7 @@ def registerUser():
 	db.child(university).push(email)
 	return university, 200
 
-@app.route('/send_emails', methods = ['POST'])
+@app.route('/send_report_emails', methods = ['POST'])
 def sendWarningEmails():
 	event = flask.request.get_json()["event"]
 	university = flask.request.get_json()["university"]

@@ -39,7 +39,7 @@ class App extends Component{
   }
 
   checkEventReported = () => {
-    axios.get("http://127.0.0.1:5000/is_bad/" + this.state.event)
+    axios.get("http://127.0.0.1:5000/event_status/" + this.state.event)
     .then(res => {
       this.setState({eventReported: res.data.isBad})
     })
@@ -51,7 +51,7 @@ class App extends Component{
 
   badEvent = (event) => {
     event.preventDefault();
-    axios.post("http://127.0.0.1:5000/send_emails", {
+    axios.post("http://127.0.0.1:5000/send_report_emails", {
       event: this.state.event,
       university: this.state.university
     })
@@ -62,7 +62,7 @@ class App extends Component{
 
   registerUser = (event) => {
     event.preventDefault();
-    axios.post("http://127.0.0.1:5000/db", {
+    axios.post("http://127.0.0.1:5000/enroll_user", {
       email: this.state.email,
       university: this.state.university
     })
